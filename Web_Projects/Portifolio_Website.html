@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* CSS for navigation menu */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        /* CSS for main content */
+        main {
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        /* CSS to hide sections by default */
+        section {
+            display: none;
+        }
+        /* CSS to show active section */
+        section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+    </nav>
+    <main>
+        <section id="home" class="active">
+            <h2>Welcome to My Portfolio</h2>
+            <p>This is a showcase of my work and projects.</p>
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a passionate web developer with experience in HTML, CSS, and JavaScript.</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>Project 1: Website Redesign</li>
+                <li>Project 2: E-commerce Platform</li>
+                <li>Project 3: Mobile App Development</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript to handle navigation clicks
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                const targetId = this.getAttribute('href').slice(1); // Get target section id
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active'); // Remove active class from all sections
+                });
+                document.getElementById(targetId).classList.add('active'); // Add active class to target section
+            });
+        });
+    </script>
+</body>
+</html>

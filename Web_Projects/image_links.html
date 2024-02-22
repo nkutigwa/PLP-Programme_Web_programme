@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            display: none; /* Hide sections by default */
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            width: 250px; /* Set the width */
+            height: 150px; /* Set the height */
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Image Links</h1>
+    </header>
+    <nav>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#menu" class="nav-link">Menu</a>
+    </nav>
+    <main>
+        <section id="home" style="display: block;"> <!-- Display home section by default -->
+            <h2>Home</h2>
+            <p>Welcome to our website! We showcase images related to different topics.</p>
+            <img src="images/technology.jpg" alt="Technology"> <!-- Adjust the file path -->
+        </section>
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <a href="images/nature1.jpg"><img src="images/nature1.jpg" alt="Nature 1"></a> <!-- Adjust the file path -->
+                <a href="images/nature2.jpg"><img src="images/nature2.jpg" alt="Nature 2"></a> <!-- Adjust the file path -->
+                <a href="images/nature3.jpg"><img src="images/nature3.jpg" alt="Nature 3"></a> <!-- Adjust the file path -->
+            </div>
+        </section>
+        <section id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="https://www.example.com/food1"><img src="images/food1.jpg" alt="Food 1"></a> Food Item 1</li> <!-- Adjust the file path -->
+                <li><a href="https://www.example.com/food2"><img src="images/food2.jpg" alt="Food 2"></a> Food Item 2</li> <!-- Adjust the file path -->
+                <li><a href="https://www.example.com/food3"><img src="images/food3.jpg" alt="Food 3"></a> Food Item 3</li> <!-- Adjust the file path -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Image Links</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle navigation clicks and show corresponding sections
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+
+                // Hide all sections
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Show the corresponding section
+                const targetId = this.getAttribute('href').slice(1);
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
